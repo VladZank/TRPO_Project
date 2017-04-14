@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "game.h"
 
-Game()
+void Game()
 {
 	
 }

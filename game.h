@@ -6,4 +6,6 @@ typedef struct{
 	char unit[4];
 }field;
 
+void Game();
+
 #endif
