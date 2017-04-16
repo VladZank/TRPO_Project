@@ -20,7 +20,6 @@ void Game()
 		system("clear");
 		print_field(units);
 	}
-	check_win(units);
 }
 void field_init(field** units)
 {
