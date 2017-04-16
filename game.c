@@ -17,6 +17,7 @@ void Game()
 	while(check_win(units) == 0)
 	{
 		swap(units);
+		system("clear");
 		print_field(units);
 	}
 	check_win(units);
