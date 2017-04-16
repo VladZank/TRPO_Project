@@ -13,6 +13,8 @@ void Game()
 		units[i]=(field*)malloc(sizeof(field*));
 	}
 	field_init(units);
+	print_field(units);
+	check_win(units);
 }
 
 void field_init(field** units)
@@ -67,4 +69,25 @@ void print_field(field** units)
 		printf("\n ‾‾‾   ‾‾‾   ‾‾‾   ‾‾‾ \n");
 	}
 	printf("\n");
+}
+
+int check_win(field** units)
+{	
+	int win = 1;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			if(win == 16){
+				puts("WINNER");
+				return 1;
+			}
+			if(atoi(units[i][j].unit) == win)
+				win++;
+			else
+				break;
+		}
+	}
+	puts("DONT WINNER");
+	return 0;
 }
