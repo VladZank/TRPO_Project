@@ -13,6 +13,7 @@ void Game()
 		units[i]=(field*)malloc(sizeof(field*));
 	}
 	field_init(units);
+	print_field(units);
 }
 
 void field_init(field** units)
@@ -67,4 +68,8 @@ void print_field(field** units)
 		printf("\n ‾‾‾   ‾‾‾   ‾‾‾   ‾‾‾ \n");
 	}
 	printf("\n");
+}
+
+int swap (field** units, char storona)
+{
 }
