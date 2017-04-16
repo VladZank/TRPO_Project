@@ -14,6 +14,8 @@ void Game()
 	}
 	field_init(units);
 	print_field(units);
+	swap(units);
+	print_field(units);
 }
 
 void field_init(field** units)
@@ -70,6 +72,31 @@ void print_field(field** units)
 	printf("\n");
 }
 
-int swap (field** units, char storona)
+void swap (field** units)
 {
+	int m, n, i, j;
+	char storona;
+	scanf("%c", &storona);
+	for(m = 0; m < 4; m++)
+	{
+		for(n = 0; n < 4; n++)
+		{
+			if(strcmp(units[m][n].unit, "  \0") == 0)
+			{
+				i = m;
+				j = n;
+			}
+		}
+	}
+	if (storona == 'w')
+	{
+		m = i + 1;
+        	n = j;
+		if (m < 4)
+		{
+			strcpy(units[i][j].unit, units[m][n].unit);
+			strcpy(units[m][n].unit, "  \0");
+		}
+	}
 }
+
