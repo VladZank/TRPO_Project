@@ -7,5 +7,6 @@ typedef struct{
 }field;
 
 void Game();
+void field_init(field** field);
 
 #endif
