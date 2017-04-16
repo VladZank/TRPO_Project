@@ -118,5 +118,15 @@ void swap (field** units)
                         strcpy(units[m][n].unit, "  \0");
                 }
         }
+        if (storona == 'd')
+        {
+                m = i;
+                n = j - 1;
+                if (n < 4)
+                {
+                        strcpy(units[i][j].unit, units[m][n].unit);
+                        strcpy(units[m][n].unit, "  \0");
+                }
+        }
 }
 
