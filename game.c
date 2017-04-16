@@ -14,8 +14,11 @@ void Game()
 	}
 	field_init(units);
 	print_field(units);
-	swap(units);
-	print_field(units);
+	while(check_win(units) == 0)
+	{
+		swap(units);
+		print_field(units);
+	}
 	check_win(units);
 }
 void field_init(field** units)
@@ -112,7 +115,7 @@ void swap (field** units)
         {
                 m = i - 1;
                 n = j;
-                if (m < 4)
+                if (m > -1)
                 {
                         strcpy(units[i][j].unit, units[m][n].unit);
                         strcpy(units[m][n].unit, "  \0");
@@ -122,7 +125,7 @@ void swap (field** units)
         {
                 m = i;
                 n = j - 1;
-                if (n < 4)
+                if (n > -1)
                 {
                         strcpy(units[i][j].unit, units[m][n].unit);
                         strcpy(units[m][n].unit, "  \0");
