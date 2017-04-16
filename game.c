@@ -16,8 +16,8 @@ void Game()
 	print_field(units);
 	swap(units);
 	print_field(units);
+	check_win(units);
 }
-
 void field_init(field** units)
 {
 	int i, j, k;
@@ -51,7 +51,7 @@ void field_init(field** units)
 			}
 		}
 	}
-}
+} 
 
 void print_field(field** units)
 {
@@ -128,5 +128,26 @@ void swap (field** units)
                         strcpy(units[m][n].unit, "  \0");
                 }
         }
+}
+
+int check_win(field** units)
+{	
+	int win = 1;
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			if(win == 16){
+				printf("YOU ARE WINNER");
+				return 1;
+			}
+			if(atoi(units[i][j].unit) == win)
+				win++;
+			else
+				return 0;
+		}
+	}
+	return 0;
 }
 

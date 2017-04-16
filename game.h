@@ -10,5 +10,6 @@ void Game();
 void field_init(field** field);
 void print_field(field** units);
 void swap(field** units);
+int check_win(field** units);
 
 #endif
