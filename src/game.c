@@ -157,10 +157,10 @@ int check_win(field** units)
 
 void menu ()
 {
-	char k;
+	char k = 's';
 	int j = -1;
 	int i = 0;
-	scanf("%s", &k);
+	system("clear");
 	while(i != -1)
 	{
 		printf("\n\n\t\t\tПЯТНАШКИ\n");
@@ -172,10 +172,8 @@ void menu ()
 		if (k == 'w'|| k == 'W')
 			if (j>0 && j < 4)
 				j--;
+		if(j == 0)
 		{
-			printf("\n\n\t\t\tПЯТНАШКИ\n");
-			printf("\t\t курсовая работа по ТРПО\n\n");
-			printf("\t\t\t  МЕНЮ\n\n");
 			printf("\t\t ************************\n");
 			printf("\t\t *\t  ИГРА   \t*\n");
 			printf("\t\t ************************\n");
@@ -228,4 +226,7 @@ void menu ()
 			printf("\t\t *\t  ВЫХОД \t*\n");
 			printf("\t\t ************************\n");
 		}
+		k = getchar();
+		system("clear"); 
+	}
 }
