@@ -155,3 +155,15 @@ int check_win(field** units)
 	return 0;
 }
 
+void menu ()
+{
+	printf("\n\n\t\t\tПЯТНАШКИ\n");
+	printf("\t\t курсовая работа по ТРПО\n\n");
+	printf("\t\t\t  МЕНЮ\n\n");
+	printf("\t\t ************************\n");
+	printf("\t\t *\t  ИГРА   \t*\n");
+	printf("\t\t ************************\n");
+	printf("\t\t  \t СПРАВКА \t \n");
+	printf("\t\t  \t АВТОРЫ \t \n");
+	printf("\t\t \t  ВЫХОД \t \n");
+}
