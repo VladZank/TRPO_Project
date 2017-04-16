@@ -10,7 +10,7 @@ void Game()
 	units=(field**)malloc(4*sizeof(field*));
 	for(int i=0; i<4; i++)
 	{
-		units[i]=(field*)malloc(4*sizeof(field*));
+		units[i]=(field*)malloc(sizeof(field*));
 	}
 	field_init(units);
 }
@@ -29,8 +29,8 @@ void field_init(field** units)
 			strcpy(units[i][j].unit, "  \0");
 		}
 	}
-	print_field(units);
-	for(k=0; k<16; k++)
+	//print_field(units);
+	for(k=0; k<15; k++)
 	{
 		i=rand()%4;
 		j=rand()%4;
@@ -48,28 +48,8 @@ void field_init(field** units)
 				j=rand()%4;
 			}
 		}
+		//print_field(units);
 	}
-	print_field(units);
-	/*for(i=0; i<4; i++)
-	{
-		for(j=0; j<4; j++)
-		{
-			flag=0;
-			for(k=0; k<16; k++)
-			{
-				if(!strcmp(units[i][j].unit, numbers[k]))
-				{
-					flag=1;
-					k=16;
-				}
-			}
-			if(!flag)
-			{
-				strcpy(units[i][j].unit, "  \0");
-			}
-		}
-	}
-	print_field(units);*/
 }
 
 void print_field(field** units)
