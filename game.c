@@ -29,7 +29,6 @@ void field_init(field** units)
 			strcpy(units[i][j].unit, "  \0");
 		}
 	}
-	//print_field(units);
 	for(k=0; k<15; k++)
 	{
 		i=rand()%4;
@@ -48,19 +47,25 @@ void field_init(field** units)
 				j=rand()%4;
 			}
 		}
-		//print_field(units);
 	}
+	print_field(units);
 }
 
 void print_field(field** units)
 {
 	for(int i=0;i<4;i++)
 	{
+		printf(" ___   ___   ___   ___ \n");
+		printf("|");
 		for(int j=0;j<4;j++)
 		{
-			printf("%s ", units[i][j].unit);
+			printf("%s | ", units[i][j].unit);
+			if(j<3)
+			{
+				printf("|");
+			}
 		}
-		printf("\n");
+		printf("\n ‾‾‾   ‾‾‾   ‾‾‾   ‾‾‾ \n");
 	}
 	printf("\n");
 }
