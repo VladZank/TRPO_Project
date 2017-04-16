@@ -48,7 +48,6 @@ void field_init(field** units)
 			}
 		}
 	}
-	print_field(units);
 }
 
 void print_field(field** units)
