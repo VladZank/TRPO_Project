@@ -157,6 +157,8 @@ int check_win(field** units)
 
 void menu ()
 {
+	char k;
+	int j = 0;
 	printf("\n\n\t\t\tПЯТНАШКИ\n");
 	printf("\t\t курсовая работа по ТРПО\n\n");
 	printf("\t\t\t  МЕНЮ\n\n");
@@ -166,4 +168,23 @@ void menu ()
 	printf("\t\t  \t СПРАВКА \t \n");
 	printf("\t\t  \t АВТОРЫ \t \n");
 	printf("\t\t \t  ВЫХОД \t \n");
+	scanf("%s", &k);
+	if (k == 's')
+		if(j == 0)
+		{
+			printf("\n\n\t\t\tПЯТНАШКИ\n");
+			printf("\t\t курсовая работа по ТРПО\n\n");
+			printf("\t\t\t  МЕНЮ\n\n");
+			printf("\t\t ************************\n");
+			printf("\t\t *\t  ИГРА   \t*\n");
+			printf("\t\t ************************\n");
+			//printf("\t\t ************************\n");
+			printf("\t\t  \t СПРАВКА \t \n");
+			//printf("\t\t ************************\n");
+			printf("\t\t  \t АВТОРЫ \t \n");
+			//printf("\t\t ************************\n");
+			//printf("\t\t ************************\n");
+			printf("\t\t \t  ВЫХОД \t \n");
+			//printf("\t\t ************************\n");
+		}
 }
