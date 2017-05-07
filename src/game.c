@@ -1,3 +1,5 @@
+#include <fcntl.h>
+#include <termios.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -155,12 +157,25 @@ int check_win(field** units)
 	return 0;
 }
 
-void menu () //Я еще не доделал (Антон)
+void menu ()
 {
+	struct termios savetty;
+	struct termios tty;
+
 	char k = 's';
 	int j = -1;
 	int i = 0;
 	system("clear");
+	if ( !isatty(0) ) { /*Проверка: стандартный ввод - терминал?*/
+ 		fprintf (stderr, "stdin not terminal\n");
+		exit (1); /* Ст. ввод был перенаправлен на файл, канал и т.п. */
+  	};
+
+	tcgetattr (0, &tty);
+	savetty = tty; /* Сохранить упр. информацию канонического режима */
+	tty.c_lflag &= ~(ICANON|ECHO|ISIG);
+	tty.c_cc[VMIN] = 1;
+	tcsetattr (0, TCSAFLUSH, &tty);
 	while(i != -1)
 	{
 		printf("\n\n\t\t\tПЯТНАШКИ\n");
@@ -208,9 +223,13 @@ void menu () //Я еще не доделал (Антон)
 			printf("\t\t *\t  ВЫХОД \t*\n");
 			printf("\t\t ************************\n");
 		}
-		k = getchar();
-		if(k == ' ')
+		read (0, &k, 1);
+		if(k == '\n')
 			break;
+		if (k == 'q') {
+      		tcsetattr (0, TCSAFLUSH, &savetty);
+  			exit (0);
+  		}
 		system("clear"); 
 	}
 	switch(j) 
@@ -225,6 +244,9 @@ void menu () //Я еще не доделал (Антон)
 			printf("Студенты СИБГУ\nгруппы ИС-641\nАгалаков Антон\nЗанкович Владислав\nШарапов Владимир\n");
 			break;
 		case 3:
-			exit;
+			tcsetattr (0, TCSAFLUSH, &savetty);
+  			exit (0);
 	}
+	tcsetattr (0, TCSAFLUSH, &savetty);
+  	exit (0);
 }
