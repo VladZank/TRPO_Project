@@ -23,6 +23,7 @@ void Game()
 		print_field(units);
 	}
 }
+
 void field_init(field** units)
 {
 	int i, j, k;
@@ -56,7 +57,7 @@ void field_init(field** units)
 			}
 		}
 	}
-} 
+}
 
 void print_field(field** units)
 {
@@ -244,6 +245,7 @@ void menu ()
 					read(0, &k, 1);
 					break;
 				case 3:
+					system("clear");
 					tcsetattr (0, TCSAFLUSH, &savetty);
   					exit(0);
 			}
