@@ -154,6 +154,7 @@ int check_win(field** units)
 				return 0;
 		}
 	}
+	return 0;
 }
 
 void menu ()
