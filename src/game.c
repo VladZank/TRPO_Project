@@ -94,7 +94,7 @@ void swap (field** units)
 			}
 		}
 	}
-	if (storona == 'w')
+	if ((storona == 'w') || (storona == 'W'))
 	{
 		m = i + 1;
         	n = j;
@@ -104,7 +104,7 @@ void swap (field** units)
 			strcpy(units[m][n].unit, "  \0");
 		}
 	}
-        if (storona == 'a')
+        if ((storona == 'a') || (storona == 'A'))
         {
                 m = i;
                 n = j +1;
@@ -114,7 +114,7 @@ void swap (field** units)
                         strcpy(units[m][n].unit, "  \0");
                 }
         }
-        if (storona == 's')
+        if ((storona == 's') || (storona == 'S'))
         {
                 m = i - 1;
                 n = j;
@@ -124,7 +124,7 @@ void swap (field** units)
                         strcpy(units[m][n].unit, "  \0");
                 }
         }
-        if (storona == 'd')
+        if ((storona == 'd') || (storona == 'D'))
         {
                 m = i;
                 n = j - 1;
